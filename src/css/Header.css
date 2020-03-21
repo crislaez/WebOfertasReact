@@ -1,0 +1,21 @@
+header{
+    width: 100%;
+    height: 600px;
+    /* background: #747575; */
+    background-image: url('../img/fondo.jpg');
+    background-size: 100% , 600px;
+    float: left;
+}
+.divTituloHeader{
+    width: 50%;
+    height: 200px;
+    margin-left: 25%;
+    margin-top: 200px;
+    float: left;
+}
+.divTituloHeader h1{
+    text-align: center;
+    color: white;
+    font-size: 100px;
+    text-shadow: 7px 7px 3px black;
+}

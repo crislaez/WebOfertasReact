@@ -1,0 +1,12 @@
+footer{
+    width: 100%;
+    height: 100px;
+    background:#334C57;
+    float: left;
+}
+footer h2{
+    color: white;
+    margin-left: 2%;
+    margin-top: 0.5em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

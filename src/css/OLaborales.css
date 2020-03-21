@@ -1,0 +1,93 @@
+.articleOLaborales{
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+.divTituloOLaborales{
+    width: 100%;
+    height: 100px;
+    background: white;
+    float: left;
+}
+.divTituloOLaborales h2{
+    text-align: center;
+    margin-top: 0.7em;
+    font-size: 35px;
+    color: black;
+}
+.divContenedor{
+    width: 100%;
+    height: 580px;
+    overflow-y: scroll;
+    float: left;
+}
+.formularioBuscador{
+    width: 100%;
+    height: 70px;
+
+    float: left;
+}
+select{
+    width: 30%;
+    margin-top: 10px;
+    margin-left: 15%;
+    /* box-shadow: 3px 3px 3px black; */
+    height: 40px;
+    color: #8B8B8B;
+    border-radius: 5px;
+}
+.formularioBuscador input[type='submit']{
+   width: 10%;
+   height: 40px;
+   box-shadow: 3px 3px 3px black;
+   border-radius: 5px;
+   margin-left: 1%;
+   color: white;
+   cursor: pointer;
+   background: #3898FF;
+   transition: all 300ms;
+}
+.formularioBuscador input[type='submit']:hover{
+    background: #38CFFF;
+    /* transform: scale(1.1 ,1.1); */
+}
+.divOferta{
+    width: 45%;
+    margin: 10px;
+    height: 300px;
+    background: white;
+    box-shadow: 7px 7px 3px grey;
+    margin-left: 3%;
+    /* padding: 1em; */
+    overflow: hidden;
+    font-size: 15px;
+    border: 1px solid #B4B4B4;
+    transition: all 300ms;
+    border-radius: 5px;
+    float: left;
+}
+.divTituliOferta{
+    background: #334C57;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 15px;
+    float: left;
+}
+.divOferta:hover{
+    transform: scale(1.02 ,1.02);
+}
+.divOferta h3{
+    text-align: center;
+    color: white;
+    margin-top: 10px
+}
+.divOferta p{
+    padding: 0.3em;
+    text-align: justify;
+    font-size: 13px;
+    margin-bottom: 0.7em;
+}
+.parrafoFinal{
+    margin-right: 5%;
+    float: left;
+}
