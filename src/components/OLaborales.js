@@ -3,6 +3,12 @@ import firebase from 'firebase'
 //CSS
 import '../css/OLaborales.css'
 
+const keys = {
+
+}
+
+const databaseOLaborales = firebase.initializeApp(keys,'secondary');
+
 class OLaborales extends React.Component{
     _isMounted = true;
 
@@ -18,7 +24,8 @@ class OLaborales extends React.Component{
 
     componentDidMount(){
         this._isMounted = true;
-        firebase.database().ref().on('value',(snap) => {
+
+        databaseOLaborales.database().ref().on('value',(snap) => {
            
             if(this._isMounted){
                 this.setState({array:snap.val()})
@@ -27,34 +34,31 @@ class OLaborales extends React.Component{
     }
 
     filstrarArray = (dato,bool) =>{
-        console.log(dato)
+        // console.log(dato)
         this.setState({load:false})
         //creamos un array vacio para el push de abajo
         let aux = [];
         //limpiamos el array que muestra las ofertas
         this.setState({arrayFiltrado:[]})
-        //llamamos a la base de datos
-        firebase.database().ref().on('value',(snap) => {         
-           //recorremos cada indice del valor que nos devuelve la bd y si coincide con
-           //el parametro que es el resultado del select
-           //lo añadimos al array aux
-            snap.forEach((d,key) => {
-                if(bool){
-                    if(d.val().municipio == dato){
-                        aux.push(d.val());
-                    }  
-                }else{
-                    if(d.val().provincia == dato){
-                        aux.push(d.val());
-                    } 
-                }
-                
-            })          
-            //en aux estan todos los arrays filtrados por el parametro que es lo que hemos
-            //selecionado en el select
-            //y lo metemos en el array estado
-            this.setState({arrayFiltrado:aux});       
-        })
+        //recorremos cada indice del valor que nos devuelve la bd y si coincide con
+        //el parametro que es el resultado del select
+        //lo añadimos al array aux
+        this.state.array.forEach((d,key) => {
+            if(bool){
+                if(d.municipio == dato){
+                    aux.push(d);
+                }  
+            }else{
+                if(d.provincia == dato){
+                    aux.push(d);
+                } 
+            }
+            
+        })          
+        //en aux estan todos los arrays filtrados por el parametro que es lo que hemos
+        //selecionado en el select
+        //y lo metemos en el array estado
+        this.setState({arrayFiltrado:aux});           
     }
 
     porMunicipio = (param) => {
@@ -79,9 +83,7 @@ class OLaborales extends React.Component{
         }else{
             alert('Escoja una Provincia')
         }   
-    }
-
-    
+    }   
 
     componentWillUnmount(){
         this._isMounted = false;
@@ -146,9 +148,9 @@ class OLaborales extends React.Component{
                                     <h3><strong>{data.desEmpleo}</strong></h3>
                                 </div>                                
                                 <p style={{marginBottom:'2em'}}>{data.desPuesto.toLowerCase()}</p>
-                                <p>Fecha: {data.fecPub}</p>
-                                <p className='parrafoFinal'>Ubicacion: {data.municipio}</p>
-                                <p className='parrafoFinal'>Provincia: {data.provincia}</p>
+                                <p><strong>Fecha:</strong> {data.fecPub}</p>
+                                <p className='parrafoFinal'><strong>Ubicacion:</strong> {data.municipio}</p>
+                                <p className='parrafoFinal'><strong>Provincia:</strong> {data.provincia}</p>
                                 <p><a className='parrafoFinal' href={data.url}>Ver oferta</a></p>
                             </div>
                         )
@@ -162,9 +164,9 @@ class OLaborales extends React.Component{
                                     <h3><strong>{data.desEmpleo}</strong></h3>
                                 </div> 
                                 <p style={{marginBottom:'2em'}}>{data.desPuesto.toLowerCase()}</p>
-                                <p>Fecha: {data.fecPub}</p>
-                                <p className='parrafoFinal'>Ubicacion: {data.municipio}</p>
-                                <p className='parrafoFinal'>Provincia: {data.provincia}</p>
+                                <p><strong>Fecha:</strong> {data.fecPub}</p>
+                                <p className='parrafoFinal'><strong>Ubicacion:</strong> {data.municipio}</p>
+                                <p className='parrafoFinal'><strong>Provincia:</strong> {data.provincia}</p>
                                 <p><a className='parrafoFinal' href={data.url}>Ver oferta</a></p>
                             </div>
                         )

@@ -3,6 +3,7 @@ import React from 'react'
 import Nav from './Nav'
 import Aside from './Aside'
 import OLaborales from './OLaborales'
+import OFormativa from './OFormativa'
 //css
 import '../css/Section.css'
 
@@ -65,7 +66,7 @@ class Section extends React.Component{
                     :
                     this.state.estado == 'OFERTAS FORMATIVAS'
                     ?
-                    <div><h2>{this.state.estado}</h2></div>
+                    <OFormativa titulo={this.state.estado}></OFormativa>
                     :
                     this.state.estado == 'PERFIL'
                     ?
