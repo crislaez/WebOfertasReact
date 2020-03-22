@@ -1,5 +1,7 @@
 import React from 'react'
 import firebase from 'firebase'
+//COMPONENTE
+import DivLaborales from './DivLaborales'
 //CSS
 import '../css/OLaborales.css'
 
@@ -143,32 +145,30 @@ class OLaborales extends React.Component{
                     ?
                     this.state.array.map((data , key) => {
                         return(
-                            <div className='divOferta' key={key}>
-                                <div className='divTituliOferta'>
-                                    <h3><strong>{data.desEmpleo}</strong></h3>
-                                </div>                                
-                                <p style={{marginBottom:'2em'}}>{data.desPuesto.toLowerCase()}</p>
-                                <p><strong>Fecha:</strong> {data.fecPub}</p>
-                                <p className='parrafoFinal'><strong>Ubicacion:</strong> {data.municipio}</p>
-                                <p className='parrafoFinal'><strong>Provincia:</strong> {data.provincia}</p>
-                                <p><a className='parrafoFinal' href={data.url}>Ver oferta</a></p>
-                            </div>
+                            <DivLaborales 
+                            key={key} 
+                            desempleo={data.desEmpleo} 
+                            despuesto={data.desPuesto.toLowerCase()} 
+                            fecpub={data.fecPub}
+                            municipio={data.municipio}
+                            provincia={data.provincia}
+                            url={data.url}
+                            ></DivLaborales>
                         )
                     })
                     :this._isMounted && this.state.array && !this.state.load
                     ?
                     this.state.arrayFiltrado.map((data , key) => {
                         return(
-                            <div className='divOferta' key={key}>
-                                <div className='divTituliOferta'>
-                                    <h3><strong>{data.desEmpleo}</strong></h3>
-                                </div> 
-                                <p style={{marginBottom:'2em'}}>{data.desPuesto.toLowerCase()}</p>
-                                <p><strong>Fecha:</strong> {data.fecPub}</p>
-                                <p className='parrafoFinal'><strong>Ubicacion:</strong> {data.municipio}</p>
-                                <p className='parrafoFinal'><strong>Provincia:</strong> {data.provincia}</p>
-                                <p><a className='parrafoFinal' href={data.url}>Ver oferta</a></p>
-                            </div>
+                            <DivLaborales 
+                            key={key} 
+                            desempleo={data.desEmpleo} 
+                            despuesto={data.desPuesto.toLowerCase()} 
+                            fecpub={data.fecPub}
+                            municipio={data.municipio}
+                            provincia={data.provincia}
+                            url={data.url}
+                            ></DivLaborales>
                         )
                     })
                     :

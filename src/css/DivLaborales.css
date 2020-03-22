@@ -1,0 +1,40 @@
+.divOferta{
+    width: 45%;
+    margin: 10px;
+    height: 300px;
+    background: white;
+    box-shadow: 7px 7px 3px grey;
+    margin-left: 3%;
+    /* padding: 1em; */
+    overflow: hidden;
+    font-size: 15px;
+    border: 1px solid #B4B4B4;
+    transition: all 300ms;
+    border-radius: 5px;
+    float: left;
+}
+.divTituliOferta{
+    background: #334C57;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 15px;
+    float: left;
+}
+.divOferta:hover{
+    transform: scale(1.02 ,1.02);
+}
+.divOferta h3{
+    text-align: center;
+    color: white;
+    margin-top: 10px
+}
+.divOferta p{
+    padding: 0.3em;
+    text-align: justify;
+    font-size: 13px;
+    margin-bottom: 0.7em;
+}
+.parrafoFinal{
+    margin-right: 5%;
+    float: left;
+}

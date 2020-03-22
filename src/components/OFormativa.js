@@ -1,4 +1,6 @@
 import React from 'react'
+//COMPONENTES
+import DivFormativas from './DivFormativas'
 //CSS
 import '../css/OFormativa.css'
 //firebase
@@ -9,7 +11,6 @@ const key = {
 }
    
 const databaseOFormativas = firebase.initializeApp(key);
-
 class OFormativa extends React.Component{
 
     _isMount = true;
@@ -47,6 +48,7 @@ class OFormativa extends React.Component{
                 aux.push(data);
             }
         })
+
         this.setState({load:false,arrayFiltrado:aux});
     } 
     
@@ -60,9 +62,15 @@ class OFormativa extends React.Component{
     }
 
     render(){
+        //creamos un array vacio para coger todos los municipios
+        //del array principal para que no se repitan
+        //ya que el array tiene 700 y pico indices
+        //y queremos filtrar por municipios
         const arrayMunicipios = [];
 
         this.state.array.map((data, key) => {
+            //si el municipio no esta dentro del nuevo arrayMunicipios
+            //lo añadimos con un push
             if(arrayMunicipios.indexOf(data.municipio) == -1){
                 arrayMunicipios.push(data.municipio)
             }           
@@ -92,45 +100,27 @@ class OFormativa extends React.Component{
                     ?
                     this.state.array.map((data, key) => {
                         return(
-                            <div key={key} className='divOFormativa'>
-                                <div className='divTituloOFormativaDatos'>
-                                    <h3>{data.titulo}</h3>
-                                </div>                                
-                                <p><strong>Centro:</strong> {data.centro}</p>
-                                <p><strong>Municipio:</strong> {data.municipio}</p>
-                                <p><strong>Fecha de inicio:</strong> {data.f_inicio}</p>
-                                <p><strong>Fecha final:</strong> {data.f_fin}</p>
-                                <p><strong>Horario entrada mañana:</strong> {data.hora_ini_m}</p>
-                                <p><strong>Horario fin mañana:</strong> {data.hora_fin_m}</p>
-                                <p><strong>Horario entrada tarde:</strong> {data.hora_ini_t}</p>
-                                <p><strong>Horario fin tarde:</strong> {data.hora_fin_t}</p>
-                                <p><strong>Horas totales:</strong> {data.horas}</p>
-                                <table border='1'>
-                                    <thead>
-                                        <tr>
-                                            <th>L</th>
-                                            <th>M</th>
-                                            <th>X</th>
-                                            <th>J</th>
-                                            <th>V</th>
-                                            <th>S</th>
-                                            <th>D</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>{data.lunes}</td>
-                                            <td>{data.martes}</td>
-                                            <td>{data.miercoles}</td>
-                                            <td>{data.jueves}</td>
-                                            <td>{data.viernes}</td>
-                                            <td>{data.sabado}</td>
-                                            <td>{data.domingo}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <p><a href={data.url}>Ver oferta</a></p>
-                            </div>
+                            <DivFormativas
+                            key={key}
+                            titulo={data.titulo}
+                            centro={data.centro}
+                            municipio={data.municipio}
+                            f_inicio={data.f_inicio}
+                            f_fin={data.f_fin}
+                            hora_ini_m={data.hora_ini_m}
+                            hora_fin_m={data.hora_fin_m}
+                            hora_ini_t={data.hora_ini_t}
+                            hora_fin_t={data.hora_fin_t}
+                            horas={data.horas}
+                            lunes={data.lunes}
+                            martes={data.martes}
+                            miercoles={data.miercoles}
+                            jueves={data.jueves}
+                            viernes={data.viernes}
+                            sabado={data.sabado}
+                            domingo={data.domingo}
+                            url={data.url}
+                            ></DivFormativas>
                         )
                     })
                     :
@@ -138,50 +128,31 @@ class OFormativa extends React.Component{
                     ?
                     this.state.arrayFiltrado.map((data, key) => {
                         return(
-                            <div key={key} className='divOFormativa'>
-                                <div className='divTituloOFormativaDatos'>
-                                    <h3>{data.titulo}</h3>
-                                </div>                                
-                                <p><strong>Centro:</strong> {data.centro}</p>
-                                <p><strong>Municipio:</strong> {data.municipio}</p>
-                                <p><strong>Fecha de inicio:</strong> {data.f_inicio}</p>
-                                <p><strong>Fecha final:</strong> {data.f_fin}</p>
-                                <p><strong>Horario entrada mañana:</strong> {data.hora_ini_m}</p>
-                                <p><strong>Horario fin mañana:</strong> {data.hora_fin_m}</p>
-                                <p><strong>Horario entrada tarde:</strong> {data.hora_ini_t}</p>
-                                <p><strong>Horario fin tarde:</strong> {data.hora_fin_t}</p>
-                                <p><strong>Horas totales:</strong> {data.horas}</p>
-                                <table border='1'>
-                                    <thead>
-                                        <tr>
-                                            <th>L</th>
-                                            <th>M</th>
-                                            <th>X</th>
-                                            <th>J</th>
-                                            <th>V</th>
-                                            <th>S</th>
-                                            <th>D</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>{data.lunes}</td>
-                                            <td>{data.martes}</td>
-                                            <td>{data.miercoles}</td>
-                                            <td>{data.jueves}</td>
-                                            <td>{data.viernes}</td>
-                                            <td>{data.sabado}</td>
-                                            <td>{data.domingo}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <p><a href={data.url}>Ver oferta</a></p>
-                            </div>
+                            <DivFormativas
+                            key={key}
+                            titulo={data.titulo}
+                            centro={data.centro}
+                            municipio={data.municipio}
+                            f_inicio={data.f_inicio}
+                            f_fin={data.f_fin}
+                            hora_ini_m={data.hora_ini_m}
+                            hora_fin_m={data.hora_fin_m}
+                            hora_ini_t={data.hora_ini_t}
+                            hora_fin_t={data.hora_fin_t}
+                            horas={data.horas}
+                            lunes={data.lunes}
+                            martes={data.martes}
+                            miercoles={data.miercoles}
+                            jueves={data.jueves}
+                            viernes={data.viernes}
+                            sabado={data.sabado}
+                            domingo={data.domingo}
+                            url={data.url}
+                            ></DivFormativas>
                         )
                     })
                     :
-                    <div>argando</div>
-
+                    <div>Cargando...</div>
                 }
                 </div>
             </article>
