@@ -1,0 +1,24 @@
+.articleNoticias{
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+.divTituloNoticias{
+    width: 100%;
+    height: 100px;
+    background: white;
+    box-shadow: 3px 0px 3px black;
+    float: left;
+}
+.divTituloNoticias h2{
+    text-align: center;
+    margin-top: 0.7em;
+    font-size: 35px;
+    color: black;
+}
+.divContenedorNoticias{
+    width: 100%;
+    height: 580px;
+    overflow-y: scroll;
+    float: left;
+}

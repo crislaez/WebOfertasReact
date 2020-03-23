@@ -4,6 +4,7 @@ import Nav from './Nav'
 import Aside from './Aside'
 import OLaborales from './OLaborales'
 import OFormativa from './OFormativa'
+import Noticias from './Noticias'
 //css
 import '../css/Section.css'
 
@@ -47,8 +48,8 @@ class Section extends React.Component{
             this.setState({estado:'OFERTAS LABORALES'})
         }else if(event.target.id == 'bOfertasFormativas'){
             this.setState({estado:'OFERTAS FORMATIVAS'})
-        }else if(event.target.id == 'bPerfil'){
-            this.setState({estado:'PERFIL'})
+        }else if(event.target.id == 'bNoticias'){
+            this.setState({estado:'NOTICIAS'})
         }else if(event.target.id == 'bContacto'){
             this.setState({estado:'CONTACTO'})
         }
@@ -68,9 +69,9 @@ class Section extends React.Component{
                     ?
                     <OFormativa titulo={this.state.estado}></OFormativa>
                     :
-                    this.state.estado == 'PERFIL'
+                    this.state.estado == 'NOTICIAS'
                     ?
-                    <div><h2>{this.state.estado}</h2></div>
+                    <Noticias titulo={this.state.estado}></Noticias>
                     :
                     this.state.estado == 'CONTACTO'
                     ?

@@ -13,7 +13,7 @@ class Nav extends React.Component{
                 <button onClick={this.props.eventoMenu}><FontAwesomeIcon icon={faBars}></FontAwesomeIcon></button>
                 <input id='bOfertasLaborales' type='button' value='OFERTAS LABORALES' onClick={this.props.evento}></input>
                 <input id='bOfertasFormativas' type='button' value='OFERTAS FORMATIVAS' onClick={this.props.evento}></input>
-                <input id='bPerfil' type='button' value='PERFIL' onClick={this.props.evento}></input>
+                <input id='bNoticias' type='button' value='NOTICIAS' onClick={this.props.evento}></input>
                 <input id='bContacto' type='button' value='CONTACTO' onClick={this.props.evento}></input>
             </nav>
         )
